@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>code editor</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <h1>CODE EDITOR</h1>
+    <div class="mainera">
+        <div class="editors">
+            <h1>HTML</h1>
+            <textarea onkeyup="run()" id="HTML" placeholder="HTML"></textarea>
+        </div>
+        <div class="editors">
+            <h1>CSS</h1>
+            <textarea  onkeyup="run()" id="CSS" placeholder="CSS"></textarea>
+        </div>
+        <div class="editors">
+            <h1>JAVASCRIPT</h1>
+            <textarea  onkeyup="run()" id="JAVASCRIPT" placeholder="JAVASCRIPT"></textarea>
+        </div>
+    </div>
+    <div class="ouput">
+        <h2>output</h2>
+        <iframe id="code"></iframe>
+    </div>
+    <script >
+       function run(){
+    let html=document.getElementById("HTML").value;
+    let css=document.getElementById("CSS").value;
+    let js=document.getElementById("JAVASCRIPT").value;
+    let code=document.getElementById("code");
+    code.contentDocument.body.innerHTML = html+ "<style>" + css +"</style>";
+    code.contentWindow.eval(js);
+
+} 
+run();
+
+    </script>
+</body>
+</html>
